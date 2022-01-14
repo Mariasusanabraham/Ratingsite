@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <style>
+    img{
+        height: 600px;
+        width: 100%;
+    }
+    .heading{
+        text-align: center;
+    }
+    .heading span{
+        font-size: 2.3rem;
+        background-color:teal;
+        color:white;
+        border-radius: .4rem;
+        padding: .0rem 1rem;
+    }
+    #a,#a:hover {
+        color: white;
+        background-color: teal;
+        width: 40%;
+        height: 26px;
+        text-align: center;
+        border-radius: 16px;
+        text-decoration: none;
+        cursor: pointer;
+        margin-left: 70px;
+        padding-top: 1px;
+    }
+    </style>
+    <div class="container">
+        <img src="{% static 'image/carousel/img.png' %}"><br><br><br></div>
+    <h5 class="heading">
+        <span>P</span>
+        <span>R</span>
+        <span>O</span>
+        <span>D</span>
+        <span>U</span>
+        <span>C</span>
+        <span>T</span>
+        <span>S</span>
+    </h5>
+    <div class="container py-5">
+        <div class="row py-5">
+            {% for i in category %}
+                <div class="col-lg-3">
+                    <div class="card mb-3">
+                        <img id="img" style="height: 300px" src="{{ i.Image }}">
+                        <h3 class="h3" style="text-align: center;color: teal">{{ i.Name }}</h3>
+                        <a href="/Ratingapp/details/{{i.id}}" id="a">View</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
