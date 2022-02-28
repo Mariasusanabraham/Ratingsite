@@ -1,107 +1,130 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block content %}
-    <style>
-    .login-container{
+{% extends 'base.html' %} {% load static %} {% block content %}
+<style>
+  .login-container {
     margin-top: 4%;
     margin-bottom: 4%;
-}
-.login-form-1{
-
+  }
+  .login-form-1 {
     padding: 5%;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
-}
-.login-form-1 h3{
+  }
+  .login-form-1 h3 {
     text-align: center;
     color: #333;
-}
-.login-form-2{
+  }
+  .login-form-2 {
     padding: 5%;
     background: teal;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
-}
-.login-form-2 h3{
+  }
+  .login-form-2 h3 {
     text-align: center;
     color: #fff;
-}
-.login-container form{
+  }
+  .login-container form {
     padding: 10%;
-}
-button
-{
+  }
+  button {
     width: 50%;
     border-radius: 1rem;
     padding: 1.5%;
     border: none;
     cursor: pointer;
-}
-.login-form-1 button{
+  }
+  .login-form-1 button {
     font-weight: 600;
     color: #fff;
     background-color: #0062cc;
-}
-.login-form-2 button{
+  }
+  .login-form-2 button {
     font-weight: 600;
     color: #0062cc;
     background-color: #fff;
-}
-.login-form-2 .ForgetPwd{
+  }
+  .login-form-2 .ForgetPwd {
     color: #fff;
     font-weight: 600;
     text-decoration: none;
-}
-.login-form-1 .ForgetPwd{
+  }
+  .login-form-1 .ForgetPwd {
     color: #0062cc;
     font-weight: 600;
     text-decoration: none;
-}
-    </style>
-    <div class="container login-container">
-            <div class="row">
-                <div class="col-md-6 login-form-1">
-                    <h3>Register</h3>
-                    <form action="/Ratingapp/save/" method="post" autocomplete="off">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Name" value="" name="name" />
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Email" value="" name="email" />
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Password" value="" name="password" />
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Confirm Password" value="" name="confirm" />
-                        </div>
-                        <div class="form-group">
-                            <button type="submit">Submit</button>
-                        </div>
-
-                    </form>
-                    {% for message in messages %}
-                        <h5 style="color: red;text-align: right">{{ message }}</h5>
-                    {% endfor %}
-                </div>
-                <div class="col-md-6 login-form-2">
-                    <h3>Login </h3>
-                    <form action="/Ratingapp/store/" method="post" autocomplete="off">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name " />
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Your Password " />
-                        </div><br><br>
-                        <div class="form-group">
-                            <button type="submit">Submit</button>
-                        </div>
-                        <div class="form-group">
-                            <a href="#" class="ForgetPwd" value="Login">Forget Password?</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
+  }
+</style>
+<div class="container login-container">
+  <div class="row">
+    <div class="col-md-6 login-form-1">
+      <h3>Register</h3>
+      <form action="/Ratingapp/save/" method="post" autocomplete="off">
+        {% csrf_token %}
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Name"
+            value=""
+            name="name"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Email"
+            value=""
+            name="email"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Password"
+            value=""
+            name="password"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Confirm Password"
+            value=""
+            name="confirm"
+          />
+        </div>
+        <div class="form-group">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+      {% for message in messages %}
+      <h5 style="color: red; text-align: right">{{ message }}</h5>
+      {% endfor %}
     </div>
+    <div class="col-md-6 login-form-2">
+      <h3>Login</h3>
+      <form action="/Ratingapp/store/" method="post" autocomplete="off">
+        {% csrf_token %}
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Your Name " />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Your Password "
+          />
+        </div>
+        <br /><br />
+        <div class="form-group">
+          <button type="submit">Submit</button>
+        </div>
+        <div class="form-group">
+          <a href="#" class="ForgetPwd" value="Login">Forget Password?</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}

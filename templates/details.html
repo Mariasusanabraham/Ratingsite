@@ -1,25 +1,27 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
-    <style>
-    #a,#a:hover {
-        margin-left: 350px;
-        color: teal;
-        text-decoration: none;
-    }
-    </style>
+{% extends 'base.html' %} {% load static %} {% block content %}
+<style>
+  #a,
+  #a:hover {
+    margin-left: 350px;
+    color: teal;
+    text-decoration: none;
+  }
+</style>
 
-    <div class="container mt-5" style="border-color: transparent">
-          <div class="row">
-              {% for i in product1 %}
-              <div class="col-md-4">
-                  <img src="{{i.Image}}" class="img-fluid">
-              </div>
-              <div class="col-md-8">
-                  <h1 class="card-title mt-5" style="text-align: center;color:teal;">{{i.Title}}</h1><br>
-                  <a href="/Ratingapp/description/{{i.id}}" id="a">View</a>
-              </div>
-              {% endfor %}
-          </div>
+<div class="container mt-5" style="border-color: transparent">
+  <div class="row">
+    {% for i in product1 %}
+    <div class="col-md-4">
+      <img src="{{i.Image}}" class="img-fluid" />
     </div>
+    <div class="col-md-8">
+      <h1 class="card-title mt-5" style="text-align: center; color: teal">
+        {{i.Title}}
+      </h1>
+      <br />
+      <a href="/Ratingapp/description/{{i.id}}" id="a">View</a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}
