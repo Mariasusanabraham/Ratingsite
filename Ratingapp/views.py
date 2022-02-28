@@ -5,7 +5,7 @@ from .models import Category, Product, Ratings
 
 def save(request):
     if request.method == 'POST':
-        first_name = request.POST['name']
+        first_name   = request.POST['name']
         username = request.POST['name']
         email = request.POST['email']
         password = request.POST['password']
@@ -24,8 +24,10 @@ def save(request):
             return render(request, 'login.html')
     else:
         pass
+    
 def login(request):
     return render(request, 'login.html')
+
 def store(request):
     if request.method == 'POST':
         first_name = request.POST['name']
@@ -39,18 +41,23 @@ def store(request):
             return render(request, 'login.html')
     else:
         pass
+    
 def logout(request):
     auth.logout(request)
     return render(request, 'home.html')
+
 def home(request):
     category = Category.objects.all()
     return render(request, 'home.html', {'category': category})
+
 def details(request, id):
     product = Product.objects.filter(Category=id)
     return render(request, 'details.html', {'product1': product})
+
 def description(request, id):
     product = Product.objects.get(id=id)
     return render(request, 'description.html', {'product2': product})
+
 def review(request, id, user_id, Category_id):
     user = User.objects.all()
     category = Category.objects.get(id=Category_id)
@@ -58,3 +65,4 @@ def review(request, id, user_id, Category_id):
                user=User.objects.get(id=user_id))
     y.save()
     return render(request, 'home.html', {'user': user}, {'category': category})
+    
